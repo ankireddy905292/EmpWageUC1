@@ -1,0 +1,40 @@
+import java.util.Random;
+
+
+public class EmpWageUC6 {
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Employee Wage Computation Program");
+        int Wage_HR = 20;
+        int Day_HRs = 8;
+        int Part_HRs = 8;
+        int NumDays = 2;
+        int MaxHRsMonth = 100;
+
+        int totalEmpHrs = 0;
+        int empHrs = 0;
+        int totalWorkingDays = 0;
+        double monthwage = 0;
+        Random random = new Random();
+
+        while (totalEmpHrs != MaxHRsMonth && totalWorkingDays != NumDays){
+            totalWorkingDays++;
+            int r = random.nextInt(2);
+            switch (r){
+                case 0:
+                    empHrs = Day_HRs;
+                    break;
+                case 1:
+                    empHrs = Part_HRs;
+                    break;
+                case 2:
+                    empHrs = 0;
+                    break;
+            }
+            totalEmpHrs = totalWorkingDays + empHrs;
+        }
+        monthwage = totalEmpHrs * Wage_HR;
+        System.out.println("Month Wage : " + monthwage);
+
+    }
+}
